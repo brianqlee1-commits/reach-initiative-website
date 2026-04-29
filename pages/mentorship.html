@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mentorship Program · The REACH Initiative</title>
+<link rel="stylesheet" href="../site.css">
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<style>
+  .topics{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px;}
+  .topic{background:#fff;border-radius:14px;padding:22px;border:1px solid var(--border);}
+  .topic .ic{width:46px;height:46px;border-radius:12px;background:var(--reach-purple-50);color:var(--reach-purple-deep);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .topic .ic svg{width:22px;height:22px;stroke-width:2;}
+  .topic h4{font-family:var(--font-body);font-weight:700;font-size:15px;color:var(--reach-purple-deep);margin:0 0 4px;}
+  .topic p{font-family:var(--font-body);font-size:13px;color:var(--fg-muted);margin:0;line-height:1.5;}
+  .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;}
+  .who-card{background:var(--reach-purple-deep);color:#fff;border-radius:18px;padding:36px;position:relative;overflow:hidden;}
+  .who-card.gold{background:var(--reach-gold);color:var(--reach-purple-deep);}
+  .who-card .label{font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;opacity:.7;margin-bottom:8px;}
+  .who-card h3{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;font-size:40px;text-transform:uppercase;margin:0 0 14px;letter-spacing:-.005em;line-height:.95;}
+  .who-card p{font-family:var(--font-body);font-size:15px;line-height:1.55;margin:0 0 20px;opacity:.9;}
+</style>
+</head>
+<body data-page="mentorship">
+<div id="site-nav"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <div class="crumbs"><a href="../index.html">Home</a> · Mentoring Program</div>
+    <h1>Saturday Sessions.<br><span class="gold">Real talk, every month.</span></h1>
+    <p class="page-lede">Once a month, we sit down with our scholars and people who've been where they're going. The lessons school doesn't teach — taught by people who lived them.</p>
+  </div>
+</header>
+
+<section>
+  <div class="section-inner">
+    <div class="prose">
+      <h3>How it works</h3>
+      <p>Our Mentoring Program matches former student-athletes who have demonstrated professional and personal achievement with current scholars. The bond is real, the time commitment is monthly, and the goal is simple: <strong>expose mentees to life lessons that aren't on the syllabus</strong>.</p>
+      <p>Saturday Sessions are our flagship gathering — a single Saturday every month where mentors, mentees, alumni, and partners come together for a focused topic, real conversation, and a shared meal.</p>
+    </div>
+
+    <div class="topics">
+      <div class="topic"><div class="ic"><i data-lucide="target"></i></div><h4>SMART Goals</h4><p>Setting and keeping the kind of goals that compound.</p></div>
+      <div class="topic"><div class="ic"><i data-lucide="wallet"></i></div><h4>Financial Literacy</h4><p>Credit, budgeting, taxes, and the basics no one taught us.</p></div>
+      <div class="topic"><div class="ic"><i data-lucide="users-round"></i></div><h4>Networking</h4><p>How to build relationships before you need them.</p></div>
+      <div class="topic"><div class="ic"><i data-lucide="briefcase"></i></div><h4>Dress for Success</h4><p>What to wear, why it matters, and how to afford it.</p></div>
+      <div class="topic"><div class="ic"><i data-lucide="graduation-cap"></i></div><h4>Recruiting &amp; Apps</h4><p>College, scholarships, and how the process actually works.</p></div>
+      <div class="topic"><div class="ic"><i data-lucide="message-circle"></i></div><h4>Real Talk</h4><p>Open discussion on what's hard right now, no judgment.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--reach-cream);">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Get Involved</span>
+      <h2>Two ways in.</h2>
+      <p>Whether you're a scholar looking for a mentor, or a professional ready to give back — we'd love to meet you.</p>
+    </div>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="label">For Scholars</div>
+        <h3>Become a Mentee</h3>
+        <p>You're a student-athlete at one of our partner schools. You want a real adult in your corner who's been through it. We'll match you with a mentor for the year.</p>
+        <a class="btn btn-gold" href="become-a-mentee.html">Apply to be a mentee <i data-lucide="arrow-right"></i></a>
+      </div>
+      <div class="who-card gold">
+        <div class="label">For Professionals</div>
+        <h3>Become a Mentor</h3>
+        <p>You're a former student-athlete (or close to one) with something to teach. Monthly Saturday Sessions, plus 1:1 check-ins. We provide structure — you bring yourself.</p>
+        <a class="btn btn-primary" href="become-a-mentor.html">Apply to be a mentor <i data-lucide="arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="../partials/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Community · The REACH Initiative</title>
+<link rel="stylesheet" href="../site.css">
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<style>
+  /* Schools laid out as regional groupings — no boxes, just typography + a hairline rule per region. */
+  .regions{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;}
+  .region h3{font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--reach-gold-deep);margin:0 0 14px;padding-bottom:14px;border-bottom:2px solid var(--reach-purple-deep);}
+  .region ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;}
+  .region li{display:flex;gap:14px;align-items:baseline;font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;font-size:26px;text-transform:uppercase;color:var(--reach-purple-deep);letter-spacing:-.005em;line-height:1;}
+  .region li .num{font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--reach-gold-deep);letter-spacing:.06em;flex-shrink:0;width:24px;}
+  .region li.add{color:var(--reach-purple-400);font-style:italic;font-weight:700;}
+  .region li.add .num{color:var(--reach-purple-400);}
+  .partners{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:32px;padding:24px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .partner{font-family:var(--font-body);font-weight:700;font-size:18px;color:var(--reach-purple-deep);text-align:center;}
+  .partner small{display:block;font-weight:600;font-size:11px;color:var(--fg-subtle);letter-spacing:.12em;text-transform:uppercase;margin-top:4px;}
+  @media (max-width:900px){
+    .regions{grid-template-columns:1fr;gap:32px;}
+  }
+</style>
+</head>
+<body data-page="community">
+<div id="site-nav"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <div class="crumbs"><a href="../index.html">Home</a> · About</div>
+    <h1>Our<br><span class="gold">Community.</span></h1>
+    <p class="page-lede">Eleven partner high schools. A handful of corporate supporters. One growing alumni network. The bridge from one student-athlete to the next is built and walked by the same people.</p>
+  </div>
+</header>
+
+<section>
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Partner Schools</span>
+      <h2>Where we work.</h2>
+      <p>We serve juniors and seniors across the City of Atlanta, South Fulton, and Clayton County — the schools that shaped us.</p>
+    </div>
+    <div class="regions">
+      <div class="region">
+        <h3>City of Atlanta</h3>
+        <ol>
+          <li><span class="num">01</span>Booker T. Washington</li>
+          <li><span class="num">02</span>Benjamin E. Mays</li>
+          <li><span class="num">03</span>North Atlanta</li>
+          <li><span class="num">04</span>South Atlanta</li>
+          <li><span class="num">05</span>Frederick Douglass</li>
+        </ol>
+      </div>
+      <div class="region">
+        <h3>South Fulton</h3>
+        <ol>
+          <li><span class="num">06</span>Westlake</li>
+          <li><span class="num">07</span>Langston Hughes</li>
+          <li><span class="num">08</span>Creekside</li>
+          <li><span class="num">09</span>Banneker</li>
+          <li><span class="num">11</span>Tri-Cities</li>
+        </ol>
+      </div>
+      <div class="region">
+        <h3>Clayton County &amp; Beyond</h3>
+        <ol>
+          <li><span class="num">10</span>North Clayton</li>
+          <li class="add"><span class="num">+</span>Your school next?</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--reach-cream);">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Supporters</span>
+      <h2>The people who help us help.</h2>
+      <p>We're grateful to the organizations and professionals who back REACH with funding, mentor hours, and Saturday Session expertise.</p>
+    </div>
+    <div class="partners">
+      <div class="partner">Delta Pilots'<small>Charitable Fund · 2021 Grant</small></div>
+    </div>
+    <p style="font-family:var(--font-body);font-size:13px;color:var(--fg-subtle);margin-top:18px;line-height:1.6;text-align:center;">More partners joining for the 2026–2027 re-launch — interested in being one? <a href="contact.html" style="color:var(--reach-purple-deep);text-decoration:underline;text-decoration-color:var(--reach-gold);">Get in touch.</a></p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <div>
+      <h2>Want to <span class="accent">join the network?</span></h2>
+      <p>School partner, corporate sponsor, mentor, or alum — we'd love to hear from you.</p>
+    </div>
+    <div class="actions">
+      <a class="btn btn-gold" href="contact.html">Get in touch <i data-lucide="arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="../partials/site.js"></script>
+</body>
+</html>

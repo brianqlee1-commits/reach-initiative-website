@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scholarship Program · The REACH Initiative</title>
+<link rel="stylesheet" href="../site.css">
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<style>
+  .req-list{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px;}
+  .req{background:#fff;border-radius:14px;padding:22px;border:1px solid var(--border);display:flex;gap:14px;align-items:flex-start;}
+  .req .ic{width:42px;height:42px;border-radius:12px;background:var(--reach-purple-50);color:var(--reach-purple-deep);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .req .ic svg{width:22px;height:22px;stroke-width:2;}
+  .req h4{font-family:var(--font-body);font-weight:700;font-size:15px;color:var(--reach-purple-deep);margin:0 0 4px;}
+  .req p{font-family:var(--font-body);font-size:14px;color:var(--fg-muted);margin:0;line-height:1.5;}
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:14px;overflow:hidden;border:1px solid var(--border);margin-top:32px;}
+  .step{background:#fff;padding:24px;}
+  .step-num{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;font-size:36px;color:var(--reach-gold);line-height:1;}
+  .step h4{font-family:var(--font-body);font-weight:700;font-size:15px;color:var(--reach-purple-deep);margin:8px 0 4px;}
+  .step p{font-family:var(--font-body);font-size:13px;color:var(--fg-muted);margin:0;line-height:1.5;}
+</style>
+</head>
+<body data-page="scholarship">
+<div id="site-nav"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <div class="crumbs"><a href="../index.html">Home</a> · Scholarship Program</div>
+    <h1>Direct scholarships<br>for <span class="gold">scholars who earned them.</span></h1>
+    <p class="page-lede">We reward metro-Atlanta junior and senior student-athletes who have faced loss, hardship, or season-ending injury — with scholarships paid directly to their institution. We can't wait to read your story.</p>
+  </div>
+</header>
+
+<section>
+  <div class="section-inner grid-2" style="align-items:start;">
+    <div class="prose">
+      <h3>What we fund</h3>
+      <p>The REACH Scholarship is awarded annually to junior and senior student-athletes from our partner high schools. Funds are paid directly to the receiving institution and applied to <strong>tuition, books, fees, or other verified institutional costs</strong>.</p>
+      <p>We don't just write a check and walk away. Recipients are invited into our mentorship community — Saturday Sessions, networking events, and a standing relationship with our board and alumni.</p>
+      <h3>Who we look for</h3>
+      <p>We don't have a GPA cutoff. We look for scholars who have <strong>faced real challenges</strong> — the loss of a parent, financial instability, a season-ending injury, caregiving responsibilities — and have kept showing up anyway. If that's you, we want to hear from you.</p>
+    </div>
+    <div>
+      <div class="eyebrow">Eligibility</div>
+      <h3 style="font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:800;font-size:36px;text-transform:uppercase;color:var(--reach-purple-deep);margin:8px 0 0;letter-spacing:-.005em;">The basics</h3>
+      <div class="req-list">
+        <div class="req"><div class="ic"><i data-lucide="graduation-cap"></i></div><div><h4>Junior or senior</h4><p>Currently enrolled at one of our 11 partner high schools.</p></div></div>
+        <div class="req"><div class="ic"><i data-lucide="trophy"></i></div><div><h4>Student-athlete</h4><p>On a varsity, JV, or club team in good standing.</p></div></div>
+        <div class="req"><div class="ic"><i data-lucide="heart"></i></div><div><h4>Documented hardship</h4><p>Loss, injury, financial, or caregiving challenges.</p></div></div>
+        <div class="req"><div class="ic"><i data-lucide="map-pin"></i></div><div><h4>Metro Atlanta</h4><p>City of Atlanta, South Fulton, or Clayton County.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--reach-cream);">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">How It Works</span>
+      <h2>Four steps. One application.</h2>
+    </div>
+    <div class="timeline">
+      <div class="step"><div class="step-num">01</div><h4>Submit application</h4><p>Online form, transcript, two recommendations, short essay.</p></div>
+      <div class="step"><div class="step-num">02</div><h4>Interview</h4><p>30-minute conversation with our scholarship committee.</p></div>
+      <div class="step"><div class="step-num">03</div><h4>Decision</h4><p>Recipients notified by mid-May, in time for graduation.</p></div>
+      <div class="step"><div class="step-num">04</div><h4>Welcome</h4><p>Scholars join Saturday Sessions and the alumni community.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <div>
+      <h2>The 2026–2027<br><span class="accent">application is open.</span></h2>
+      <p>We can't wait to read about you.</p>
+    </div>
+    <div class="actions">
+      <a class="btn btn-gold" href="scholarship-application.html">Apply now <i data-lucide="arrow-right"></i></a>
+      <a class="btn btn-outline" href="recipients.html">See past recipients</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="../partials/site.js"></script>
+</body>
+</html>

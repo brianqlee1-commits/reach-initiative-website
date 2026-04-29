@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scholarship Application · The REACH Initiative</title>
+<link rel="stylesheet" href="../site.css">
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<style>
+  .checklist{display:flex;flex-direction:column;gap:12px;margin:0;padding:0;list-style:none;}
+  .checklist li{display:flex;gap:12px;align-items:flex-start;font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--fg);}
+  .checklist .dot{width:24px;height:24px;border-radius:999px;background:var(--reach-gold);color:var(--reach-purple-deep);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+  .checklist .dot svg{width:14px;height:14px;stroke-width:3;}
+</style>
+</head>
+<body data-page="scholarship">
+<div id="site-nav"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <div class="crumbs"><a href="../index.html">Home</a> · <a href="scholarship.html">Scholarship Program</a> · Apply</div>
+    <h1>Apply for the<br><span class="gold">REACH Scholarship.</span></h1>
+    <p class="page-lede">Thank you for considering REACH. Take your time with the application — we read every word, and we look forward to learning more about you.</p>
+  </div>
+</header>
+
+<section>
+  <div class="section-inner grid-2" style="align-items:start;grid-template-columns:1fr 1.6fr;">
+    <div>
+      <div class="eyebrow">Before you start</div>
+      <h3 style="font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:800;font-size:36px;text-transform:uppercase;color:var(--reach-purple-deep);margin:8px 0 24px;letter-spacing:-.005em;">Bring this with you.</h3>
+      <ul class="checklist">
+        <li><span class="dot"><i data-lucide="check"></i></span><span><strong>Most recent transcript</strong> (PDF, unofficial is fine)</span></li>
+        <li><span class="dot"><i data-lucide="check"></i></span><span><strong>Two recommendations</strong> — one from a coach, one from a teacher or counselor</span></li>
+        <li><span class="dot"><i data-lucide="check"></i></span><span><strong>Personal essay</strong> (500–750 words) on a challenge you've faced and what you've learned</span></li>
+        <li><span class="dot"><i data-lucide="check"></i></span><span><strong>One photo</strong> — sport, school, or candid (we use it if you're selected)</span></li>
+        <li><span class="dot"><i data-lucide="check"></i></span><span><strong>Parent / guardian contact</strong> if you're under 18</span></li>
+      </ul>
+      <p style="font-family:var(--font-body);font-size:14px;color:var(--fg-muted);line-height:1.55;margin-top:24px;padding-top:24px;border-top:1px solid var(--border);">Questions about the application? Please reach out to <a href="mailto:brian.lee@thereachinitiative.org" style="color:var(--reach-purple-deep);">brian.lee@thereachinitiative.org</a> — we're glad to help.</p>
+    </div>
+    <div>
+      <div class="form-wrap">
+        <iframe
+          src="https://form.jotform.com/261164160153043"
+          title="REACH Scholarship Application"
+          allowtransparency="true"
+          allow="geolocation; microphone; camera; fullscreen"
+          style="min-height:1200px"
+          scrolling="auto">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="../partials/site.js"></script>
+</body>
+</html>

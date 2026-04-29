@@ -1,0 +1,376 @@
+/* ============================================================
+   THE REACH INITIATIVE — Colors & Type
+   Source of truth for brand foundations. Matches the
+   8.8.2019 Logo Design Specifications:
+     Spot colors: PANTONE 2607 C (purple) + PANTONE 2587 C (gold)
+     Fonts:      Phosphate Inline (display) + Open Sans Bold
+   ============================================================ */
+
+/* ---------- Web fonts ---------- */
+/* Open Sans is the spec font for body / sub-display copy. */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+/* Phosphate Inline is an Apple-licensed display face that is
+   not freely redistributable. The closest open substitute is
+   Big Shoulders Display (Google Fonts) — condensed, geometric,
+   high-impact, SOLID letterforms (no inline rule). Used
+   everywhere we'd otherwise call for Phosphate Inline.
+   ⚠ FLAG: swap in real Phosphate Inline when licensed assets
+   are available. */
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800;900&display=swap');
+
+/* ============================================================
+   COLORS
+   ============================================================ */
+:root {
+  /* ---- Brand purple (PANTONE 2607 C) ---- */
+  /* Sampled from REACH-Icon.svg + REACH-Logo.svg */
+  --reach-purple-50:  #F4ECFA;
+  --reach-purple-100: #E5D2F2;
+  --reach-purple-200: #C9A4E4;
+  --reach-purple-300: #AC76D6;
+  --reach-purple-400: #8547AD;   /* light brand purple — wordmark, hand */
+  --reach-purple-500: #6B2A99;
+  --reach-purple-600: #520A76;   /* dark brand purple — "INITIATIVE" lockup */
+  --reach-purple-700: #3F0860;
+  --reach-purple-800: #2B0644;
+  --reach-purple-900: #1A0329;
+
+  /* The two purples that actually appear in the logo. Use these
+     by name when you mean "the brand color" — the scale above
+     is for tints/shades only. */
+  --reach-purple:      #8547AD;  /* primary, default */
+  --reach-purple-deep: #520A76;  /* secondary, headings, depth */
+
+  /* ---- Brand gold (PANTONE 2587 C, radial gradient in the globe) ---- */
+  --reach-gold-50:  #FFFBCC;     /* gradient top — pale cream */
+  --reach-gold-100: #FBF2BB;
+  --reach-gold-200: #F0D98E;
+  --reach-gold-300: #EED688;
+  --reach-gold-400: #EBBB10;     /* gradient mid — saturated honey */
+  --reach-gold-500: #D4A00C;
+  --reach-gold-600: #C3922E;     /* gradient end — burnished gold */
+  --reach-gold-700: #9A7321;
+  --reach-gold-800: #6E5217;
+  --reach-gold-900: #43320E;
+
+  --reach-gold:      #EBBB10;
+  --reach-gold-deep: #C3922E;
+
+  /* ---- Neutrals (warm-leaning to play with the gold) ---- */
+  --reach-ink:       #0E0A14;    /* near-black, slight purple cast */
+  --reach-graphite:  #2A2330;
+  --reach-slate:     #4A4150;
+  --reach-stone:     #7B7480;
+  --reach-mist:      #B7B0BC;
+  --reach-fog:       #DCD7E0;
+  --reach-paper:     #F5F2F7;    /* off-white surface, warm */
+  --reach-cream:     #FBF8F2;    /* warmer surface, paired with gold */
+  --reach-white:     #FFFFFF;
+
+  /* ---- Semantic surface + text ---- */
+  --bg:              var(--reach-paper);
+  --bg-elevated:     var(--reach-white);
+  --bg-inverse:      var(--reach-purple-deep);
+  --bg-accent:       var(--reach-cream);
+
+  --fg:              var(--reach-ink);
+  --fg-muted:        var(--reach-slate);
+  --fg-subtle:       var(--reach-stone);
+  --fg-inverse:      var(--reach-white);
+  --fg-on-purple:    var(--reach-white);
+  --fg-on-gold:      var(--reach-purple-deep);
+
+  --border:          var(--reach-fog);
+  --border-strong:   var(--reach-mist);
+  --border-brand:    var(--reach-purple-400);
+
+  /* ---- Functional ---- */
+  --success:         #2E7D4F;
+  --warning:         #B8860B;
+  --error:           #B3261E;
+  --info:            var(--reach-purple-400);
+
+  /* ---- Signature gradients ---- */
+  --gradient-gold:   radial-gradient(circle at 35% 30%,
+                       var(--reach-gold-50) 0%,
+                       var(--reach-gold-200) 30%,
+                       var(--reach-gold-400) 70%,
+                       var(--reach-gold-deep) 100%);
+  --gradient-purple: linear-gradient(180deg,
+                       var(--reach-purple-400) 0%,
+                       var(--reach-purple-deep) 100%);
+  --gradient-ribbon: linear-gradient(90deg,
+                       var(--reach-purple-deep) 0%,
+                       var(--reach-purple-400) 50%,
+                       var(--reach-gold-400) 100%);
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+
+  /* ---- Families ---- */
+  --font-display: "Big Shoulders Display", "Phosphate", "Phosphate Inline",
+                  "Bebas Neue", Impact, sans-serif;
+  --font-body:    "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                  Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono:    "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+
+  /* ---- Type scale (modular, 1.250 major-third) ---- */
+  --text-2xs:  11px;
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-md:   18px;
+  --text-lg:   20px;
+  --text-xl:   24px;
+  --text-2xl:  30px;
+  --text-3xl:  38px;
+  --text-4xl:  48px;
+  --text-5xl:  64px;
+  --text-6xl:  84px;
+  --text-7xl:  112px;
+
+  /* ---- Weights ---- */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-extrabold: 800;
+
+  /* ---- Line height ---- */
+  --leading-tight:   1.05;
+  --leading-snug:    1.2;
+  --leading-normal:  1.45;
+  --leading-relaxed: 1.6;
+  --leading-loose:   1.8;
+
+  /* ---- Tracking ---- */
+  --tracking-tight:  -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.04em;
+  --tracking-wider:  0.12em;   /* small caps / eyebrow */
+  --tracking-widest: 0.24em;   /* "T H E   I N I T I A T I V E" */
+
+  /* ============================================================
+     SPACING / RADIUS / SHADOW / MOTION
+     ============================================================ */
+
+  /* 4px base */
+  --space-0:  0;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* Radii — REACH uses generous, "approachable" rounding,
+     never sharp. Matches the soft hand silhouette in the mark. */
+  --radius-xs:  4px;
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-2xl: 32px;
+  --radius-pill: 999px;
+
+  /* Shadows — soft, warm-tinted (purple cast, never neutral gray) */
+  --shadow-xs: 0 1px 2px rgba(82, 10, 118, 0.06);
+  --shadow-sm: 0 2px 6px rgba(82, 10, 118, 0.08);
+  --shadow-md: 0 6px 16px rgba(82, 10, 118, 0.10);
+  --shadow-lg: 0 16px 32px rgba(82, 10, 118, 0.14);
+  --shadow-xl: 0 24px 56px rgba(82, 10, 118, 0.18);
+  --shadow-glow-gold:   0 0 24px rgba(235, 187, 16, 0.45);
+  --shadow-glow-purple: 0 0 24px rgba(133, 71, 173, 0.45);
+
+  /* Motion */
+  --ease-out:     cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:  cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-emph:    cubic-bezier(0.2, 0.9, 0.1, 1.1); /* subtle overshoot */
+  --duration-fast:   150ms;
+  --duration-base:   240ms;
+  --duration-slow:   400ms;
+  --duration-slower: 700ms;
+}
+
+/* ============================================================
+   SEMANTIC TYPE STYLES
+   Use these directly — never restyle h1/h2 ad-hoc.
+   ============================================================ */
+
+html, body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display = Phosphate Inline territory — REACH wordmark style.
+   ALWAYS uppercase, ALWAYS the inline-ruled face.            */
+.display, .display-xl, .display-2xl {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: var(--leading-tight);
+  color: var(--reach-purple-deep);
+}
+.display-2xl { font-size: var(--text-7xl); }
+.display-xl  { font-size: var(--text-6xl); }
+.display     { font-size: var(--text-5xl); }
+.display-sm  { font-size: var(--text-4xl);
+               font-family: var(--font-display);
+               font-weight: var(--weight-bold);
+               text-transform: uppercase;
+               line-height: var(--leading-tight);
+               color: var(--reach-purple-deep); }
+
+/* Headings — Open Sans Bold, NOT the display face.
+   The display face is reserved for hero / wordmark moments. */
+h1, .h1 {
+  font-family: var(--font-body);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-extrabold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--reach-purple-deep);
+  margin: 0 0 var(--space-4);
+}
+h2, .h2 {
+  font-family: var(--font-body);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  color: var(--reach-purple-deep);
+  margin: 0 0 var(--space-3);
+}
+h3, .h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  color: var(--fg);
+  margin: 0 0 var(--space-3);
+}
+h4, .h4 {
+  font-family: var(--font-body);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--fg);
+  margin: 0 0 var(--space-2);
+}
+h5, .h5 {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--fg);
+  margin: 0 0 var(--space-2);
+}
+
+/* Eyebrow — the "T H E  I N I T I A T I V E" tracked-out label,
+   used above section heads everywhere. */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-widest);
+  color: var(--reach-purple-400);
+}
+
+/* Body */
+p, .body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--fg);
+  text-wrap: pretty;
+  margin: 0 0 var(--space-4);
+}
+.body-lg { font-size: var(--text-md); line-height: var(--leading-relaxed); }
+.body-sm { font-size: var(--text-sm); line-height: var(--leading-normal); }
+
+.lead {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--fg-muted);
+  text-wrap: pretty;
+}
+
+/* Label / form text */
+.label, label {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  color: var(--fg);
+}
+
+.caption, small {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-regular);
+  color: var(--fg-subtle);
+  line-height: var(--leading-normal);
+}
+
+/* Quote — for testimonials from scholars, mentors, families */
+.quote {
+  font-family: var(--font-body);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-regular);
+  font-style: italic;
+  line-height: var(--leading-snug);
+  color: var(--reach-purple-deep);
+  text-wrap: balance;
+}
+
+/* Stat — for impact numbers ($, %, count of scholars, etc.) */
+.stat {
+  font-family: var(--font-display);
+  font-size: var(--text-6xl);
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  color: var(--reach-purple-deep);
+}
+.stat-label {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--reach-purple-400);
+}
+
+code, .code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--reach-paper);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  color: var(--reach-purple-deep);
+}
+
+a {
+  color: var(--reach-purple-400);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+a:hover { color: var(--reach-purple-deep); }

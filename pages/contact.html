@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact · The REACH Initiative</title>
+<link rel="stylesheet" href="../site.css">
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<style>
+  .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start;}
+  .contact-card{background:#fff;border-radius:18px;padding:32px;border:1px solid var(--border);display:flex;flex-direction:column;gap:18px;}
+  .contact-row{display:flex;gap:14px;align-items:flex-start;}
+  .contact-row .ic{width:42px;height:42px;border-radius:12px;background:var(--reach-purple-50);color:var(--reach-purple-deep);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .contact-row .ic svg{width:22px;height:22px;stroke-width:2;}
+  .contact-row .label{font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-subtle);margin-bottom:2px;}
+  .contact-row a, .contact-row .val{font-family:var(--font-body);font-size:16px;font-weight:600;color:var(--reach-purple-deep);text-decoration:none;}
+  .contact-row a:hover{text-decoration:underline;}
+  .contact-form{background:#fff;border-radius:18px;padding:32px;border:1px solid var(--border);}
+  .contact-form h3{font-family:var(--font-display);font-size:28px;font-weight:600;color:var(--reach-purple-deep);margin:0 0 8px;letter-spacing:-0.01em;}
+  .contact-form .form-intro{font-family:var(--font-body);font-size:14px;color:var(--fg-muted);line-height:1.55;margin:0 0 24px;}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:18px;}
+  .field label{font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-subtle);}
+  .field input, .field select, .field textarea{font-family:var(--font-body);font-size:15px;color:var(--reach-purple-deep);background:var(--reach-cream);border:1px solid var(--border);border-radius:10px;padding:12px 14px;outline:none;transition:border-color .15s,background .15s;}
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--reach-purple-deep);background:#fff;}
+  .field textarea{resize:vertical;min-height:140px;line-height:1.5;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .form-submit{font-family:var(--font-body);font-size:14px;font-weight:700;letter-spacing:.04em;color:#fff;background:var(--reach-purple-deep);border:none;border-radius:999px;padding:14px 28px;cursor:pointer;transition:background .15s,transform .1s;}
+  .form-submit:hover{background:var(--reach-purple-400);}
+  .form-submit:active{transform:translateY(1px);}
+  .form-note{font-family:var(--font-body);font-size:12px;color:var(--fg-subtle);margin-top:14px;line-height:1.5;}
+</style>
+</head>
+<body data-page="contact">
+<div id="site-nav"></div>
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <div class="crumbs"><a href="../index.html">Home</a></div>
+    <h1>Get in<br><span class="gold">touch.</span></h1>
+    <p class="page-lede">Questions about applying, mentoring, partnering, or supporting REACH? We read every message.</p>
+  </div>
+</header>
+
+<section>
+  <div class="section-inner contact-grid">
+    <div class="contact-card">
+      <div class="contact-row">
+        <div class="ic"><i data-lucide="mail"></i></div>
+        <div>
+          <div class="label">Email</div>
+          <a href="mailto:brian.lee@thereachinitiative.org">brian.lee@thereachinitiative.org</a>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="ic"><i data-lucide="instagram"></i></div>
+        <div>
+          <div class="label">Instagram</div>
+          <a href="https://instagram.com/the_reach_initiative">@the_reach_initiative</a>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="ic"><i data-lucide="map-pin"></i></div>
+        <div>
+          <div class="label">Based In</div>
+          <span class="val">Atlanta, Georgia</span>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="ic"><i data-lucide="shield-check"></i></div>
+        <div>
+          <div class="label">501(c)(3) · EIN</div>
+          <span class="val">84-2452799</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <form class="contact-form" action="mailto:brian.lee@thereachinitiative.org" method="post" enctype="text/plain">
+        <h3>Send us a message</h3>
+        <p class="form-intro">Fill this out and we'll get back to you within a few days. For applications, please use the dedicated forms on the Programs and Mentorship pages.</p>
+        <div class="field-row">
+          <div class="field">
+            <label for="cf-first">First name</label>
+            <input type="text" id="cf-first" name="first_name" required>
+          </div>
+          <div class="field">
+            <label for="cf-last">Last name</label>
+            <input type="text" id="cf-last" name="last_name" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="cf-topic">What's this about?</label>
+          <select id="cf-topic" name="topic">
+            <option>General question</option>
+            <option>Scholarship inquiry</option>
+            <option>Mentorship inquiry</option>
+            <option>Partnership / sponsorship</option>
+            <option>Donation question</option>
+            <option>Media or press</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send message</button>
+        <p class="form-note">This form opens your email app with the message pre-filled. If that doesn't work, email <a href="mailto:brian.lee@thereachinitiative.org" style="color:var(--reach-purple-deep);">brian.lee@thereachinitiative.org</a> directly.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="../partials/site.js"></script>
+</body>
+</html>
