@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-root="./">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -331,23 +331,7 @@
 <body>
 
 <!-- ============ NAV ============ -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="#">
-      <img src="assets/REACH-Icon.png" alt="">
-      <div class="brand-name"><small>The</small>REACH Initiative</div>
-    </a>
-    <div class="nav-links">
-      <a href="pages/programs.html">Programs</a>
-      <a href="pages/scholarship.html">Scholarships</a>
-      <a href="pages/mentorship.html">Mentorship</a>
-      <a href="pages/organization.html">Organization</a>
-      <a href="pages/community.html">Community</a>
-      <a href="pages/contact.html">Contact</a>
-    </div>
-    <a class="nav-cta" href="pages/donate.html">Donate</a>
-  </div>
-</nav>
+<div id="site-nav"></div>
 
 <!-- ============ HERO ============ -->
 <header class="hero">
@@ -499,48 +483,9 @@
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer id="contact">
-  <div class="foot-inner">
-    <div class="foot-brand">
-      <img src="assets/REACH-Logo-Horiz.png" alt="The REACH Initiative">
-      <p>The REACH Initiative is a 501(c)(3) non-profit rewarding metro Atlanta high-school student-athletes who have faced challenges or hardships with mentorship, academic and life support, and exposure to cultural and educational experiences.</p>
-    </div>
-    <div class="foot-col">
-      <h5>About</h5>
-      <ul>
-        <li><a href="#">Our Programs</a></li>
-        <li><a href="#">Our Organization</a></li>
-        <li><a href="#">Our Community</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h5>Scholarships</h5>
-      <ul>
-        <li><a href="#">Overview</a></li>
-        <li><a href="#">Apply</a></li>
-        <li><a href="#">2020–2021 Recipients</a></li>
-        <li><a href="#">2019–2020 Recipient</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h5>Mentoring</h5>
-      <ul>
-        <li><a href="#">Overview</a></li>
-        <li><a href="#">Become a Mentor</a></li>
-        <li><a href="#">Become a Mentee</a></li>
-        <li><a href="mailto:brian.lee@thereachinitiative.org">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="foot-bottom">
-    <div>© 2026 The REACH Initiative · 501(c)(3) · Atlanta, GA</div>
-    <div class="socials">
-      <a href="https://instagram.com/the_reach_initiative" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-      <a href="mailto:brian.lee@thereachinitiative.org" aria-label="Email"><i data-lucide="mail"></i></a>
-    </div>
-  </div>
-</footer>
+<div id="site-footer"></div>
 
-<script>lucide.createIcons();</script>
+<script src="partials/site.js"></script>
+<script>if(window.lucide)lucide.createIcons();</script>
 </body>
 </html>
