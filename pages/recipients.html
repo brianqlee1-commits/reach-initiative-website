@@ -7,97 +7,216 @@
 <link rel="stylesheet" href="../site.css">
 <script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
 <style>
-  .year-block{margin-bottom:72px;}
-  .year-head{display:flex;align-items:baseline;gap:24px;margin-bottom:32px;flex-wrap:wrap;}
-  .year-head .year{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;font-size:88px;color:var(--reach-gold);line-height:.85;}
-  .year-head .year-meta h2{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;font-size:36px;text-transform:uppercase;color:var(--reach-purple-deep);margin:0;letter-spacing:-.005em;}
-  .year-head .year-meta p{font-family:var(--font-body);font-size:15px;color:var(--fg-muted);margin:6px 0 0;max-width:640px;line-height:1.5;}
+  /* ===== HERO OVERRIDE ===== */
+  .recipients-hero{background:var(--reach-purple-deep);color:#fff;padding:80px 28px 60px;position:relative;overflow:hidden;}
+  .recipients-hero::before{content:"";position:absolute;top:-160px;right:-160px;width:520px;height:520px;background:radial-gradient(circle at 35% 30%,#FFFBCC 0%,#F0D98E 30%,#EBBB10 65%,#C3922E 100%);border-radius:999px;opacity:.18;filter:blur(2px);}
+  .recipients-hero::after{content:"SCHOLARS";position:absolute;left:-40px;bottom:-110px;font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;font-size:340px;line-height:.8;color:rgba(255,255,255,.05);letter-spacing:-.02em;pointer-events:none;}
+  .recipients-hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
+  .recipients-hero h1{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;font-size:120px;line-height:.88;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin:0 0 22px;}
+  .recipients-hero h1 .gold{color:var(--reach-gold);font-style:italic;}
+  .recipients-hero .lede{font-family:var(--font-body);font-size:19px;line-height:1.55;color:rgba(255,255,255,.82);max-width:640px;margin:0;text-wrap:pretty;}
+  .stats-strip{display:flex;gap:48px;margin-top:44px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.18);padding-top:28px;}
+  .stat .num{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;font-size:52px;color:var(--reach-gold);line-height:1;}
+  .stat .lbl{font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:6px;}
+
+  /* ===== COHORT BLOCK ===== */
+  .cohort{padding:96px 28px 24px;}
+  .cohort-inner{max-width:1200px;margin:0 auto;}
+  .cohort-head{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:start;margin-bottom:56px;}
+  .cohort-year{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;font-size:180px;line-height:.78;color:var(--reach-gold);letter-spacing:-.025em;white-space:nowrap;}
+  .cohort-year .slash{color:var(--reach-purple-200);font-weight:700;}
+  .cohort-meta{padding-top:18px;}
+  .cohort-tag{font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--reach-gold-deep);margin-bottom:12px;}
+  .cohort-meta h2{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;font-size:56px;line-height:.95;color:var(--reach-purple-deep);text-transform:uppercase;margin:0 0 16px;letter-spacing:-.005em;}
+  .cohort-meta p{font-family:var(--font-body);font-size:17px;line-height:1.55;color:var(--fg-muted);margin:0;max-width:680px;text-wrap:pretty;}
+
+  /* ===== SCHOLAR CARDS ===== */
+  .scholars{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+  .scholar{position:relative;background:#fff;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.06);box-shadow:0 1px 2px rgba(82,10,118,.04);transition:transform .25s ease, box-shadow .25s ease;}
+  .scholar:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(82,10,118,.14);}
+  .scholar-tag{position:absolute;top:14px;left:14px;z-index:2;font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;font-size:32px;color:#fff;background:var(--reach-purple-deep);padding:0 10px;border-radius:6px;line-height:1.1;letter-spacing:0;text-shadow:0 1px 2px rgba(0,0,0,.3);}
+  .scholar-photo{aspect-ratio:4/5;width:100%;overflow:hidden;background:var(--reach-purple-50);}
+  .scholar-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease;}
+  .scholar:hover .scholar-photo img{transform:scale(1.04);}
+  .scholar-body{padding:22px 22px 26px;}
+  .scholar-class{font-family:var(--font-body);font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--reach-gold-deep);margin-bottom:8px;}
+  .scholar-body h3{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;font-size:30px;line-height:1;color:var(--reach-purple-deep);text-transform:uppercase;margin:0 0 6px;letter-spacing:-.005em;}
+  .scholar-school{font-family:var(--font-body);font-size:13px;font-weight:600;color:var(--fg);margin-bottom:14px;}
+  .scholar-bio{font-family:var(--font-body);font-size:14px;line-height:1.55;color:var(--fg-muted);margin:0 0 18px;}
+  .scholar-now{display:flex;align-items:center;gap:10px;background:var(--reach-gold);color:var(--reach-purple-deep);padding:10px 14px;border-radius:10px;font-family:var(--font-body);font-size:13px;font-weight:700;line-height:1.3;}
+  .scholar-now i{flex-shrink:0;width:14px;height:14px;}
+  .scholar-now .now-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--reach-purple-deep);opacity:.6;display:block;margin-bottom:2px;font-weight:700;}
+
+  /* ===== INAUGURAL (KAMDEN) — pull-quote layout ===== */
+  .inaugural{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:stretch;background:#fff;border-radius:24px;overflow:hidden;border:1px solid rgba(0,0,0,.06);box-shadow:0 4px 16px rgba(82,10,118,.06);}
+  .inaugural-photo{position:relative;background:var(--reach-purple-50);min-height:520px;}
+  .inaugural-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .inaugural-badge{position:absolute;top:24px;left:24px;background:var(--reach-gold);color:var(--reach-purple-deep);padding:8px 14px;border-radius:6px;font-family:var(--font-body);font-size:10px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;}
+  .inaugural-body{padding:56px 56px 56px 16px;display:flex;flex-direction:column;justify-content:center;}
+  .inaugural-eyebrow{font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--reach-gold-deep);margin-bottom:14px;}
+  .inaugural-body h3{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;font-size:64px;line-height:.92;color:var(--reach-purple-deep);text-transform:uppercase;margin:0 0 8px;letter-spacing:-.01em;}
+  .inaugural-school{font-family:var(--font-body);font-size:15px;font-weight:600;color:var(--fg);margin-bottom:24px;}
+  .inaugural-quote{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;font-size:32px;line-height:1.1;color:var(--reach-purple-deep);text-transform:uppercase;margin:0 0 18px;letter-spacing:-.005em;border-left:5px solid var(--reach-gold);padding-left:20px;}
+  .inaugural-bio{font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--fg-muted);margin:0 0 24px;max-width:480px;}
+  .inaugural-now{display:inline-flex;align-items:center;gap:10px;background:var(--reach-purple-deep);color:#fff;padding:14px 22px;border-radius:999px;font-family:var(--font-body);font-size:14px;font-weight:700;align-self:flex-start;}
+  .inaugural-now i{width:14px;height:14px;}
+  .inaugural-now strong{color:var(--reach-gold);}
+
+  /* ===== DIVIDER ===== */
+  .cohort-divider{max-width:1200px;margin:64px auto;height:1px;background:linear-gradient(to right,transparent,var(--border) 20%,var(--border) 80%,transparent);}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:980px){
+    .recipients-hero h1{font-size:72px;}
+    .cohort-head{grid-template-columns:1fr;gap:18px;}
+    .cohort-year{font-size:128px;}
+    .cohort-meta h2{font-size:40px;}
+    .scholars{grid-template-columns:repeat(2,1fr);gap:20px;}
+    .inaugural{grid-template-columns:1fr;}
+    .inaugural-body{padding:32px;}
+    .inaugural-body h3{font-size:48px;}
+    .inaugural-quote{font-size:24px;}
+    .stats-strip{gap:24px;}
+    .stat .num{font-size:40px;}
+  }
+  @media (max-width:560px){
+    .scholars{grid-template-columns:1fr;}
+    .recipients-hero h1{font-size:56px;}
+    .cohort-year{font-size:88px;}
+  }
 </style>
 </head>
 <body data-page="scholarship">
 <div id="site-nav"></div>
 
-<header class="page-hero">
-  <div class="page-hero-inner">
+<!-- HERO -->
+<header class="recipients-hero">
+  <div class="recipients-hero-inner">
     <div class="crumbs"><a href="../index.html">Home</a> · <a href="scholarship.html">Scholarship Program</a> · Recipients</div>
-    <h1>Our scholars,<br><span class="gold">past and present.</span></h1>
-    <p class="page-lede">The students who carried REACH's first scholarships into college, work, and the next chapter. We're proud of every one of them.</p>
+    <h1>Our scholars,<br><span class="gold">past &amp; present.</span></h1>
+    <p class="lede">The students who carried REACH's first scholarships into college, work, and the next chapter. We're proud of every one of them — and we're just getting started.</p>
+    <div class="stats-strip">
+      <div class="stat"><div class="num">5</div><div class="lbl">Scholars to date</div></div>
+      <div class="stat"><div class="num">~$10K</div><div class="lbl">Awarded</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">Cohorts</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lbl">College-bound</div></div>
+    </div>
   </div>
 </header>
 
-<section>
-  <div class="section-inner">
-
-    <!-- 2020-2021 -->
-    <div class="year-block">
-      <div class="year-head">
-        <div class="year">2020<br>2021</div>
-        <div class="year-meta">
-          <h2>Three scholars. One pandemic year.</h2>
-          <p>The 2020–2021 school year was filled with uncertainty for students around the globe. Despite the challenges of the pandemic, we are proud of these scholars' resiliency — and excited to spotlight the winners of our 2020–2021 scholarship.</p>
-        </div>
-      </div>
-      <div class="recipients-grid">
-        <article class="recipient">
-          <div class="recipient-photo" style="padding:0;background:none;"><img src="../assets/photos/nahzire.webp" alt="Nahzire West" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-          <div class="recipient-body">
-            <div class="recipient-year">Class of 2021</div>
-            <h3>Nahzire West</h3>
-            <div class="school">Booker T. Washington HS</div>
-            <p>Four-year letterman in baseball, named Captain all four years. Dual enrollment, L.E.A.D. Ambassador, HOSA Debate Team, Student Government. Launched his own apparel line — already a sought-after product among his peers.</p>
-            <div class="next">Now at Georgia State · Business Marketing</div>
-          </div>
-        </article>
-        <article class="recipient">
-          <div class="recipient-photo" style="padding:0;background:none;"><img src="../assets/photos/trinity.webp" alt="Trinity Lewis" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-          <div class="recipient-body">
-            <div class="recipient-year">Class of 2021</div>
-            <h3>Trinity Lewis</h3>
-            <div class="school">Henry Grady HS</div>
-            <p>4.0 GPA and four-year captain of girls' basketball. Served on Atlanta Public Schools' Equity Board, leading development of the system's first documented equity policy. Volunteer with No Place for Hate. Reviving an abandoned park as a youth outlet.</p>
-            <div class="next">Now at UGA · Urban Development &amp; Planning</div>
-          </div>
-        </article>
-        <article class="recipient">
-          <div class="recipient-photo" style="padding:0;background:none;"><img src="../assets/photos/yakia.webp" alt="Yakia Edmonds" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-          <div class="recipient-body">
-            <div class="recipient-year">Class of 2021</div>
-            <h3>Yakia Edmonds</h3>
-            <div class="school">KIPP Atlanta Collegiate HS</div>
-            <p>Nearly a 3.5 GPA, KIPP Varsity Cheerleading, KAC Dance, Dolce Dancing Diva Club. Teen volunteer for City of Refuge, Mt. Vernon Baptist server, teacher's assistant, Goodwill volunteer — and runs a successful clothing business on top of it.</p>
-            <div class="next">Now at Georgia Southern · Accounting</div>
-          </div>
-        </article>
+<!-- 2020-2021 COHORT -->
+<section class="cohort">
+  <div class="cohort-inner">
+    <div class="cohort-head">
+      <div class="cohort-year">2020<span class="slash">/</span>21</div>
+      <div class="cohort-meta">
+        <div class="cohort-tag">The Pandemic Cohort · Four Scholars</div>
+        <h2>Four scholars.<br>One pandemic year.</h2>
+        <p>The 2020–2021 school year was filled with uncertainty for students around the globe. Despite the challenges of the pandemic, we are proud of these scholars' resiliency — and excited to spotlight the winners of our 2020–2021 scholarship.</p>
       </div>
     </div>
 
-    <!-- 2019-2020 -->
-    <div class="year-block">
-      <div class="year-head">
-        <div class="year">2019<br>2020</div>
-        <div class="year-meta">
-          <h2>The first scholar.</h2>
-          <p>Our inaugural scholarship recipient — the start of everything that followed.</p>
-        </div>
-      </div>
-      <div class="recipients-grid" style="grid-template-columns:repeat(3,1fr);">
-        <article class="recipient">
-          <div class="recipient-photo" style="padding:0;background:none;"><img src="../assets/photos/kamden.webp" alt="Kamden Dobbs" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-          <div class="recipient-body">
-            <div class="recipient-year">Class of 2020 · Inaugural Scholar</div>
-            <h3>Kamden "Kam" Dobbs</h3>
-            <div class="school">Benjamin E. Mays HS</div>
-            <p>Our first REACH Scholar. A standout student-athlete at Mays who carried the program forward as our inaugural recipient.</p>
-            <div class="next">Now at Morehouse · Computer Science</div>
-          </div>
-        </article>
-        <div></div><div></div>
-      </div>
-    </div>
+    <div class="scholars">
 
+      <article class="scholar">
+        <span class="scholar-tag">01</span>
+        <div class="scholar-photo"><img src="../assets/photos/nahzire.webp" alt="Nahzire West"></div>
+        <div class="scholar-body">
+          <div class="scholar-class">Class of 2021</div>
+          <h3>Nahzire West</h3>
+          <div class="scholar-school">Booker T. Washington HS</div>
+          <p class="scholar-bio">Four-year baseball letterman and Captain all four years. Dual enrollment, L.E.A.D. Ambassador, HOSA Debate Team, Student Government — and runs his own apparel line on the side.</p>
+          <div class="scholar-now">
+            <i data-lucide="graduation-cap"></i>
+            <div><span class="now-label">Now at</span>Georgia State · Business Marketing</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="scholar">
+        <span class="scholar-tag">02</span>
+        <div class="scholar-photo"><img src="../assets/photos/trinity.webp" alt="Trinity Lewis"></div>
+        <div class="scholar-body">
+          <div class="scholar-class">Class of 2021</div>
+          <h3>Trinity Lewis</h3>
+          <div class="scholar-school">Henry Grady HS</div>
+          <p class="scholar-bio">4.0 GPA and four-year captain of girls' basketball. Helped lead Atlanta Public Schools' Equity Board to develop the system's first documented equity policy. No Place for Hate volunteer; reviving an abandoned park as a youth outlet.</p>
+          <div class="scholar-now">
+            <i data-lucide="graduation-cap"></i>
+            <div><span class="now-label">Now at</span>UGA · Urban Development &amp; Planning</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="scholar">
+        <span class="scholar-tag">03</span>
+        <div class="scholar-photo"><img src="../assets/photos/yakia.webp" alt="Yakia Edmonds"></div>
+        <div class="scholar-body">
+          <div class="scholar-class">Class of 2021</div>
+          <h3>Yakia Edmonds</h3>
+          <div class="scholar-school">KIPP Atlanta Collegiate HS</div>
+          <p class="scholar-bio">Nearly a 3.5 GPA, KIPP Varsity Cheerleading, KAC Dance, Dolce Dancing Diva Club. Volunteers with City of Refuge, Mt. Vernon Baptist, and Goodwill — and runs a successful clothing business on top of it.</p>
+          <div class="scholar-now">
+            <i data-lucide="graduation-cap"></i>
+            <div><span class="now-label">Now at</span>Georgia Southern · Accounting</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="scholar">
+        <span class="scholar-tag">04</span>
+        <div class="scholar-photo"><img src="../assets/photos/caulin.png" alt="Caulin Avery receiving his REACH scholarship"></div>
+        <div class="scholar-body">
+          <div class="scholar-class">Class of 2021</div>
+          <h3>Caulin Avery</h3>
+          <div class="scholar-school">South Cobb HS</div>
+          <p class="scholar-bio">100 Black Men of America member · Chick-fil-A Leader Academy · Eagle TV (school news) · Varsity Baseball Team Captain. Heading to North Carolina A&amp;T to major in Sports Broadcasting/Journalism — and play baseball.</p>
+          <div class="scholar-now">
+            <i data-lucide="graduation-cap"></i>
+            <div><span class="now-label">Headed to</span>NC A&amp;T · Sports Broadcasting</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
   </div>
 </section>
 
+<div class="cohort-divider"></div>
+
+<!-- 2019-2020 INAUGURAL -->
+<section class="cohort" style="padding-top:24px;">
+  <div class="cohort-inner">
+    <div class="cohort-head">
+      <div class="cohort-year">2019<span class="slash">/</span>20</div>
+      <div class="cohort-meta">
+        <div class="cohort-tag">Inaugural Cohort · Where it all began</div>
+        <h2>The first<br>REACH Scholar.</h2>
+        <p>Our inaugural scholarship recipient — the start of everything that followed.</p>
+      </div>
+    </div>
+
+    <article class="inaugural">
+      <div class="inaugural-photo">
+        <span class="inaugural-badge">★ Inaugural Scholar</span>
+        <img src="../assets/photos/kamden.png" alt="Kamden Dobbs">
+      </div>
+      <div class="inaugural-body">
+        <div class="inaugural-eyebrow">Class of 2020 · Recipient #001</div>
+        <h3>Kamden<br>"Kam" Dobbs</h3>
+        <div class="inaugural-school">Benjamin E. Mays High School</div>
+        <p class="inaugural-quote">The scholar who started it all.</p>
+        <p class="inaugural-bio">A standout student-athlete at Mays — and the first young person to carry The REACH Initiative's scholarship into college. Every scholar who's followed stands on the foundation he set.</p>
+        <div class="inaugural-now">
+          <i data-lucide="graduation-cap"></i>
+          <span>Now at <strong>Morehouse College</strong> · Computer Science</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CTA -->
 <section class="cta-band">
   <div class="cta-band-inner">
     <div>
