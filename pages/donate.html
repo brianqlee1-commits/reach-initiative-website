@@ -11,6 +11,8 @@
   @media (max-width:960px){.donate-grid{grid-template-columns:1fr;gap:32px;}}
 
   .amounts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px;}
+  .amounts .amount.custom{grid-column:1 / -1;}
+  .amounts .amount.custom .amt{font-size:28px;}
   .amount{background:#fff;border:2px solid var(--border);border-radius:14px;padding:22px 18px;text-align:left;cursor:pointer;font-family:var(--font-body);transition:border-color .15s linear,background-color .15s linear;}
   .amount:hover, .amount.selected{border-color:var(--reach-purple-deep);background:var(--reach-purple-50);}
   .amount .amt{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;font-size:36px;color:var(--reach-purple-deep);line-height:1;}
@@ -57,15 +59,16 @@
         <button class="amount" data-amount="100"><div class="amt">$100</div><div class="what">A Saturday Session lunch.</div></button>
         <button class="amount selected" data-amount="500"><div class="amt">$500</div><div class="what">Application fees for a cohort.</div></button>
         <button class="amount" data-amount="2500"><div class="amt">$2,500</div><div class="what">Half of a named scholarship.</div></button>
+        <button class="amount custom" data-amount="custom"><div class="amt">Other amount</div><div class="what">Choose your own gift on the next screen.</div></button>
       </div>
-      <a class="btn btn-primary" id="give-btn" style="margin-top:24px;" href="https://www.thereachinitiative.org/take-action" target="_blank" rel="noopener">Continue to checkout <i data-lucide="arrow-right"></i></a>
-      <p style="font-family:var(--font-body);font-size:13px;color:var(--fg-subtle);margin-top:18px;line-height:1.55;">Secure checkout is hosted on our Squarespace site, processed by Stripe. You'll receive an email receipt for tax purposes.</p>
+      <a class="btn btn-primary" id="give-btn" style="margin-top:24px;" href="https://buy.stripe.com/4gM28r7f3bZT6aM528bMQ02" target="_blank" rel="noopener">Continue to checkout <i data-lucide="arrow-right"></i></a>
+      <p style="font-family:var(--font-body);font-size:13px;color:var(--fg-subtle);margin-top:18px;line-height:1.55;">Secure checkout is processed by <strong>Stripe</strong>. You'll receive an emailed receipt for tax purposes.</p>
     </div>
 
     <div class="give-card">
       <div style="display:flex;align-items:center;gap:10px;color:var(--reach-gold-deep);font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;"><i data-lucide="shield-check" style="width:16px;height:16px;"></i> Secure · Tax-Deductible</div>
       <h4>How your gift is processed</h4>
-      <p>The REACH Initiative is a registered 501(c)(3) nonprofit. Donations are processed by <strong>Stripe</strong> through our Squarespace donation page — the same checkout you'd see on any modern e-commerce site.</p>
+      <p>The REACH Initiative is a registered 501(c)(3) nonprofit. Donations are processed directly by <strong>Stripe</strong> — the same checkout you'd see on any modern e-commerce site.</p>
       <p>You'll receive an emailed receipt within minutes that you can use for tax purposes.</p>
       <div class="meta"><strong>Legal Name:</strong> The REACH Initiative, Inc.<br><strong>EIN:</strong> 84-2452799<br><strong>Status:</strong> 501(c)(3) public charity</div>
       <div class="partner-row" style="margin-top:8px;">
@@ -94,28 +97,33 @@
   <div class="section-inner" style="max-width:760px;text-align:center;">
     <div class="eyebrow" style="margin-bottom:14px;">Other Ways to Give</div>
     <h2 style="font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:800;font-size:44px;text-transform:uppercase;color:var(--reach-purple-deep);margin:0 0 18px;letter-spacing:-.005em;line-height:1;">Beyond cash.</h2>
-    <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--fg-muted);margin:0 0 28px;">Mail a check, set up a recurring gift, donate stock, or include REACH in your employer's matching-gift program. Email <a href="mailto:brian.lee@thereachinitiative.org" style="color:var(--reach-purple-deep);text-decoration:underline;text-decoration-color:var(--reach-gold);">brian.lee@thereachinitiative.org</a> and we'll walk you through it.</p>
+    <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--fg-muted);margin:0 0 28px;">Mail a check, set up a recurring gift, donate stock, or include REACH in your employer's matching-gift program. Email <a href="/cdn-cgi/l/email-protection#bfddcdd6ded191d3dadaffcbd7dacddadedcd7d6d1d6cbd6decbd6c9da91d0cdd8" style="color:var(--reach-purple-deep);text-decoration:underline;text-decoration-color:var(--reach-gold);"><span class="__cf_email__" data-cfemail="d2b0a0bbb3bcfcbeb7b792a6bab7a0b7b3b1babbbcbba6bbb3a6bba4b7fcbda0b5">[email&#160;protected]</span></a> and we'll walk you through it.</p>
   </div>
 </section>
 
 <div id="site-footer"></div>
-<script src="../partials/site.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../partials/site.js"></script>
 <script>
-  // Amount selector — drives the checkout link's amount param
-  const STRIPE_BASE = "https://www.thereachinitiative.org/take-action"; // Squarespace donate page
+  // Amount selector — each amount maps to its own Stripe Payment Link
+  const STRIPE_LINKS = {
+    "25":     "https://buy.stripe.com/8x23cveHve81bv60LSbMQ00",
+    "100":    "https://buy.stripe.com/6oUeVdeHvbZTeHi7agbMQ01",
+    "500":    "https://buy.stripe.com/4gM28r7f3bZT6aM528bMQ02",
+    "2500":   "https://buy.stripe.com/3cI9AT7f3fc59mYfGMbMQ03",
+    "custom": "https://buy.stripe.com/9B628rczn7JD8iUbqwbMQ04"
+  };
   const buttons = document.querySelectorAll('.amount');
   const giveBtn = document.getElementById('give-btn');
   function updateLink(amt){
-    const url = new URL(STRIPE_BASE);
-    url.searchParams.set('amount', amt);
-    giveBtn.setAttribute('href', url.toString());
+    const href = STRIPE_LINKS[amt];
+    if (href) giveBtn.setAttribute('href', href);
   }
   buttons.forEach(b => b.addEventListener('click', () => {
     buttons.forEach(x => x.classList.remove('selected'));
     b.classList.add('selected');
     updateLink(b.dataset.amount);
   }));
-  updateLink(500);
+  updateLink('500');
 </script>
 </body>
 </html>
