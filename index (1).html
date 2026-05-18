@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" data-root="./">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The REACH Initiative — Rewarding Education & Exposure for Athletes</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--reach-paper);scroll-behavior:smooth;}
+  img{max-width:100%;display:block;}
+
+  /* ============ NAV ============ */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,242,247,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    max-width:1200px;margin:0 auto;padding:14px 28px;
+    display:flex;align-items:center;gap:32px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .brand img{height:56px;}
+  .brand-name{
+    font-family:var(--font-body);font-weight:800;font-size:15px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--reach-purple-deep);
+    line-height:1.1;
+  }
+  .brand-name small{display:block;font-size:9px;letter-spacing:.24em;color:var(--reach-gold-deep);font-weight:700;margin-bottom:2px;}
+  .nav-links{display:flex;gap:26px;margin-left:auto;}
+  .nav-links a{
+    font-family:var(--font-body);font-size:13px;font-weight:600;
+    color:var(--fg);text-decoration:none;letter-spacing:.02em;
+  }
+  .nav-links a:hover{color:var(--reach-purple-deep);}
+  .nav-cta{
+    font-family:var(--font-body);font-weight:600;font-size:13px;
+    padding:10px 20px;border-radius:999px;
+    background:var(--reach-gold);color:var(--reach-purple-deep);
+    text-decoration:none;
+  }
+  .nav-cta:hover{background:var(--reach-gold-deep);color:#fff;}
+
+  /* ============ HERO ============ */
+  .hero{
+    background:var(--reach-purple-deep);
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;top:-120px;right:-120px;width:520px;height:520px;
+    background:radial-gradient(circle at 35% 30%,#FFFBCC 0%,#F0D98E 30%,#EBBB10 65%,#C3922E 100%);
+    border-radius:999px;opacity:.18;filter:blur(2px);
+  }
+  .hero-inner{
+    max-width:1200px;margin:0 auto;padding:96px 28px 110px;
+    display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:center;
+    position:relative;z-index:1;
+  }
+  .hero-eyebrow{
+    font-family:var(--font-body);font-size:12px;font-weight:700;
+    letter-spacing:.42em;text-transform:uppercase;color:var(--reach-gold);
+    margin-bottom:20px;
+  }
+  .hero h1{
+    font-family:"Big Shoulders Display","Bebas Neue",Impact,sans-serif;
+    font-weight:900;font-size:96px;line-height:.92;
+    text-transform:uppercase;letter-spacing:-.005em;
+    color:#fff;margin:0 0 20px;
+  }
+  .hero h1 .gold{color:var(--reach-gold);}
+  .hero-lede{
+    font-family:var(--font-body);font-size:19px;line-height:1.5;
+    color:rgba(255,255,255,.85);max-width:560px;margin:0 0 32px;
+    text-wrap:pretty;
+  }
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    font-family:var(--font-body);font-weight:600;font-size:14px;
+    letter-spacing:.01em;padding:12px 24px;border-radius:999px;border:none;
+    cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;line-height:1.2;transition:background-color .15s linear,color .15s linear;
+  }
+  .btn-gold{background:var(--reach-gold);color:var(--reach-purple-deep);}
+  .btn-gold:hover{background:var(--reach-gold-deep);color:#fff;}
+  .btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);}
+  .btn-outline:hover{background:rgba(255,255,255,.1);}
+  .btn-primary{background:var(--reach-purple-deep);color:#fff;}
+  .btn-primary:hover{background:var(--reach-purple-400);}
+  .btn-secondary{background:transparent;color:var(--reach-purple-deep);border:1px solid var(--reach-purple-deep);padding:11px 23px;}
+  .btn-secondary:hover{background:var(--reach-purple-50);}
+
+  .hero-mark{display:flex;justify-content:center;align-items:center;}
+  .hero-mark img{height:340px;filter:drop-shadow(0 30px 60px rgba(0,0,0,.3));}
+
+  /* ============ STAT STRIP ============ */
+  .stat-strip{
+    background:var(--reach-cream);
+    border-bottom:1px solid var(--border);
+  }
+  .stat-strip-inner{
+    max-width:1200px;margin:0 auto;padding:48px 28px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  }
+  .stat-block{display:flex;flex-direction:column;gap:6px;}
+  .stat-num{
+    font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;
+    font-size:64px;line-height:1;color:var(--reach-purple-deep);
+  }
+  .stat-block.gold .stat-num{color:var(--reach-gold-deep);}
+  .stat-cap{
+    font-family:var(--font-body);font-size:11px;font-weight:700;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--reach-purple-400);
+  }
+
+  /* ============ SECTION SHELL ============ */
+  section{padding:96px 28px;}
+  .section-inner{max-width:1200px;margin:0 auto;}
+  .section-head{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:56px;max-width:760px;}
+  .eyebrow{
+    font-family:var(--font-body);font-size:11px;font-weight:700;
+    letter-spacing:.32em;text-transform:uppercase;color:var(--reach-gold-deep);
+  }
+  .section-head h2{
+    font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;
+    font-size:56px;line-height:1;color:var(--reach-purple-deep);
+    text-transform:uppercase;letter-spacing:-.005em;margin:0;
+  }
+  .section-head p{
+    font-family:var(--font-body);font-size:18px;line-height:1.55;
+    color:var(--fg-muted);margin:0;text-wrap:pretty;
+  }
+
+  /* ============ MISSION QUOTE ============ */
+  .mission{background:var(--reach-paper);}
+  .mission-inner{
+    max-width:960px;margin:0 auto;text-align:center;
+    display:flex;flex-direction:column;align-items:center;gap:24px;
+  }
+  .mission .mark{
+    font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;
+    font-size:120px;line-height:.7;color:var(--reach-gold);margin:0;
+  }
+  .mission blockquote{
+    font-family:var(--font-body);font-size:32px;font-style:italic;
+    line-height:1.3;color:var(--reach-purple-deep);margin:0;text-wrap:balance;
+  }
+  .mission .attr{
+    font-family:var(--font-body);font-size:13px;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--reach-purple-400);
+  }
+
+  /* ============ THREE Ms ============ */
+  .programs{background:var(--reach-cream);}
+  .programs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .program{
+    background:#fff;border-radius:18px;padding:36px 32px 32px;
+    display:flex;flex-direction:column;gap:18px;
+    border-top:5px solid var(--reach-purple-400);
+    transition:transform .2s ease,border-color .2s ease;
+  }
+  .program:nth-child(2){border-top-color:var(--reach-gold);}
+  .program:nth-child(3){border-top-color:var(--reach-purple-deep);}
+  .program:hover{transform:translateY(-4px);}
+  .program .ic{
+    width:56px;height:56px;border-radius:14px;
+    background:var(--reach-purple-50);color:var(--reach-purple-deep);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .program:nth-child(2) .ic{background:#FFF6D2;color:var(--reach-gold-deep);}
+  .program .ic svg{width:30px;height:30px;stroke-width:2;}
+  .program .label{
+    font-family:var(--font-body);font-size:11px;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--reach-purple-400);
+  }
+  .program h3{
+    font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;
+    font-size:38px;line-height:.95;text-transform:uppercase;
+    color:var(--reach-purple-deep);margin:0;letter-spacing:-.005em;
+  }
+  .program p{
+    font-family:var(--font-body);font-size:15px;line-height:1.55;
+    color:var(--fg-muted);margin:0;text-wrap:pretty;
+  }
+  .program a.more{
+    font-family:var(--font-body);font-size:13px;font-weight:700;
+    color:var(--reach-purple-deep);text-decoration:none;letter-spacing:.04em;
+    display:inline-flex;align-items:center;gap:6px;margin-top:auto;
+  }
+  .program a.more:hover{color:var(--reach-purple-400);}
+
+  /* ============ STORY / FOUNDER ============ */
+  .story-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center;}
+  .story-image{
+    aspect-ratio:4/5;border-radius:20px;overflow:hidden;
+    background:linear-gradient(160deg,var(--reach-purple-400) 0%,var(--reach-purple-deep) 100%);
+    position:relative;display:flex;align-items:center;justify-content:center;
+  }
+  .story-image .ph{
+    color:rgba(255,255,255,.65);
+    font-family:var(--font-body);font-size:11px;letter-spacing:.2em;
+    text-transform:uppercase;font-weight:700;
+    border:1.5px dashed rgba(255,255,255,.45);padding:14px 24px;border-radius:999px;
+    z-index:1;text-align:center;
+  }
+  .story-body h2{
+    font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;
+    font-size:56px;line-height:1;text-transform:uppercase;
+    color:var(--reach-purple-deep);margin:14px 0 20px;letter-spacing:-.005em;
+  }
+  .story-body p{
+    font-family:var(--font-body);font-size:17px;line-height:1.6;
+    color:var(--fg);margin:0 0 16px;text-wrap:pretty;
+  }
+  .story-body .signature{
+    margin-top:28px;display:flex;gap:14px;align-items:center;
+    padding-top:22px;border-top:1px solid var(--border);
+  }
+  .signature-name{font-family:var(--font-body);font-weight:700;color:var(--reach-purple-deep);font-size:15px;}
+  .signature-role{font-family:var(--font-body);font-size:12px;color:var(--fg-subtle);letter-spacing:.04em;}
+
+  /* ============ PARTNER SCHOOLS ============ */
+  .schools{background:var(--reach-purple-deep);color:#fff;}
+  .schools .section-head h2{color:#fff;}
+  .schools .eyebrow{color:var(--reach-gold);}
+  .schools .section-head p{color:rgba(255,255,255,.75);}
+  .schools-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);
+    border-radius:14px;overflow:hidden;
+  }
+  .school{
+    background:var(--reach-purple-deep);
+    padding:24px 22px;display:flex;flex-direction:column;gap:6px;
+    transition:background-color .15s linear;
+  }
+  .school:hover{background:rgba(255,255,255,.06);}
+  .school-num{
+    font-family:var(--font-mono);font-size:11px;color:var(--reach-gold);
+    font-weight:700;letter-spacing:.06em;
+  }
+  .school-name{font-family:var(--font-body);font-size:16px;font-weight:700;color:#fff;line-height:1.25;}
+  .school-loc{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.55);}
+
+  /* ============ PARTNERS / SUPPORTERS ============ */
+  .supporters{background:var(--reach-cream);text-align:center;padding:72px 28px;}
+  .supporters .eyebrow{display:block;margin-bottom:24px;}
+  .supporters-row{
+    display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap;
+    font-family:var(--font-body);font-weight:700;font-size:18px;
+    color:var(--fg-muted);letter-spacing:.02em;
+  }
+  .supporters-row span{padding:8px 14px;}
+
+  /* ============ CTA BAND ============ */
+  .cta-band{background:var(--reach-purple-deep);position:relative;overflow:hidden;color:#fff;}
+  .cta-band::before{
+    content:"";position:absolute;left:-80px;bottom:-80px;width:280px;height:280px;
+    background:var(--reach-gold);border-radius:999px;opacity:.12;
+  }
+  .cta-band::after{
+    content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;
+    background:var(--reach-gold);border-radius:999px;opacity:.08;
+  }
+  .cta-band-inner{
+    max-width:1200px;margin:0 auto;padding:72px 28px;
+    display:flex;align-items:center;justify-content:space-between;gap:40px;
+    position:relative;z-index:1;flex-wrap:wrap;
+  }
+  .cta-band h2{
+    font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;
+    font-size:56px;line-height:.95;text-transform:uppercase;
+    color:#fff;margin:0;letter-spacing:-.005em;max-width:640px;
+  }
+  .cta-band h2 .accent{color:var(--reach-gold);}
+  .cta-band p{
+    font-family:var(--font-body);font-size:16px;color:rgba(255,255,255,.8);
+    margin:10px 0 0;max-width:560px;
+  }
+  .cta-band .actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+  /* ============ FOOTER ============ */
+  footer{
+    background:var(--reach-ink);color:rgba(255,255,255,.7);padding:64px 28px 32px;
+  }
+  .foot-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;}
+  .foot-brand img{height:64px;margin-bottom:16px;}
+  .foot-brand p{font-family:var(--font-body);font-size:13px;line-height:1.6;max-width:340px;}
+  .foot-col h5{
+    font-family:var(--font-body);font-size:11px;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--reach-gold);
+    margin:0 0 14px;
+  }
+  .foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .foot-col a{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.7);text-decoration:none;}
+  .foot-col a:hover{color:#fff;}
+  .foot-bottom{
+    max-width:1200px;margin:48px auto 0;padding-top:24px;
+    border-top:1px solid rgba(255,255,255,.12);
+    display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;
+    font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.5);
+  }
+  .foot-bottom .socials{display:flex;gap:14px;}
+  .foot-bottom .socials a{color:rgba(255,255,255,.6);}
+  .foot-bottom .socials svg{width:18px;height:18px;}
+
+  @media (max-width:900px){
+    .hero-inner,.story-inner{grid-template-columns:1fr;gap:32px;}
+    .hero h1{font-size:64px;}
+    .stat-strip-inner{grid-template-columns:repeat(2,1fr);}
+    .programs-grid{grid-template-columns:1fr;}
+    .schools-grid{grid-template-columns:repeat(2,1fr);}
+    .nav-links{display:none;}
+    section{padding:64px 24px;}
+    .section-head h2,.story-body h2,.cta-band h2{font-size:40px;}
+    .foot-inner{grid-template-columns:1fr 1fr;}
+    .hero-mark img{height:220px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<div id="site-nav"></div>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">The · REACH · Initiative · Est. 2019 · Atlanta</div>
+      <h1>Reach further.<br><span class="gold">Together.</span></h1>
+      <p class="hero-lede">We support metro Atlanta high-school student-athletes navigating loss, hardship, and injury — with scholarships, mentorship, and a community that doesn't quit on them. Re-launching for the 2026–2027 cohort.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="pages/donate.html">Donate <i data-lucide="arrow-right"></i></a>
+        <a class="btn btn-outline" href="#programs">See our programs</a>
+      </div>
+    </div>
+    <div class="hero-mark">
+      <img src="assets/REACH-Icon.png" alt="REACH mark — globe cradled by a hand">
+    </div>
+  </div>
+</header>
+
+<!-- ============ STAT STRIP ============ -->
+<section class="stat-strip" style="padding:0;">
+  <div class="stat-strip-inner">
+    <div class="stat-block"><div class="stat-num">11</div><div class="stat-cap">Partner High Schools</div></div>
+    <div class="stat-block gold"><div class="stat-num">5</div><div class="stat-cap">Scholarships Awarded</div></div>
+    <div class="stat-block"><div class="stat-num">~$10K</div><div class="stat-cap">Disbursed To Scholars</div></div>
+    <div class="stat-block gold"><div class="stat-num">2027</div><div class="stat-cap">Next Cohort Graduates</div></div>
+  </div>
+</section>
+
+<!-- ============ MISSION ============ -->
+<section class="mission" id="about">
+  <div class="section-inner mission-inner">
+    <div class="mark">"</div>
+    <blockquote>Rewarding Education &amp; Exposure for Athletes Facing Challenges &amp; Hardships — that's REACH. We work with scholars carrying the weight of loss, instability, or season-ending injury, and we don't let go.</blockquote>
+    <div class="attr">Our Mission</div>
+  </div>
+</section>
+
+<!-- ============ THREE Ms / PROGRAMS ============ -->
+<section class="programs" id="programs">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Our Programs · The Three Ms</span>
+      <h2>Money. Mentorship.<br>Motivation.</h2>
+      <p>Three programs, one cycle. We invest directly, we teach what school doesn't, and we ask graduates to come back and do it again for the next class.</p>
+    </div>
+    <div class="programs-grid">
+      <article class="program">
+        <div class="ic"><i data-lucide="banknote"></i></div>
+        <span class="label">Monetary Support</span>
+        <h3>Scholarships at graduation</h3>
+        <p>Direct scholarships paid to the institution — for tuition, books, fees, or other verified institutional needs at the moment they matter most.</p>
+        <a class="more" href="#">Read more <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></a>
+      </article>
+      <article class="program">
+        <div class="ic"><i data-lucide="heart-handshake"></i></div>
+        <span class="label">Mentorship</span>
+        <h3>Saturday Sessions, monthly</h3>
+        <p>SMART goals, networking, financial literacy, recruiting, dress for success — taught by professionals from Chick-fil-A, Deloitte, the Fulton DA's office, and partner schools.</p>
+        <a class="more" href="#">Read more <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></a>
+      </article>
+      <article class="program">
+        <div class="ic"><i data-lucide="users-round"></i></div>
+        <span class="label">Motivation</span>
+        <h3>Mentees become mentors</h3>
+        <p>Graduates return to coach the next cohort. The model sustains itself, and alumni get a tangible way to give back to the community that backed them.</p>
+        <a class="more" href="#">Read more <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOUNDER STORY ============ -->
+<section class="story" id="story">
+  <div class="section-inner story-inner">
+    <div class="story-image" style="aspect-ratio:4/3;">
+      <img src="assets/photos/scholarship-winners-2021.webp" alt="Brian Q. Lee with REACH scholarship recipients holding an oversized check" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    <div class="story-body">
+      <span class="eyebrow">Our Story</span>
+      <h2>Filling a gap<br>no one else was.</h2>
+      <p>Too many talented student-athletes in metro Atlanta hit senior year carrying weight no scholarship application asks about — a parent lost, an injury that ended a recruiting season, a family that can't cover the gap between a partial offer and a full tuition bill. They show up to graduation with a diploma in one hand and uncertainty in the other.</p>
+      <p>REACH was founded to meet that exact need: direct scholarship dollars at the moment they matter, plus mentorship and a community that doesn't disappear after the check clears. We awarded our first scholarships in 2020 and 2021, paused through COVID, and are re-launching for the 2026–2027 school year — bigger, more focused, and built around the three Ms our scholars actually need: <strong style="color:var(--reach-purple-deep);">Monetary support, Mentorship, and Mental wellness.</strong></p>
+      <div class="signature">
+        <div>
+          <div class="signature-name">Brian Q. Lee</div>
+          <div class="signature-role">Founder · Westlake '05 · Atlanta, GA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTNER SCHOOLS ============ -->
+<section class="schools" id="schools">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Where We Work</span>
+      <h2>Eleven schools.<br>One cohort.</h2>
+      <p>We serve juniors and seniors across the City of Atlanta and South Fulton County — the schools that shaped us, and the scholars who carry them forward.</p>
+    </div>
+    <div class="schools-grid">
+      <div class="school"><span class="school-num">01</span><span class="school-name">Booker T. Washington</span><span class="school-loc">Atlanta</span></div>
+      <div class="school"><span class="school-num">02</span><span class="school-name">Benjamin E. Mays</span><span class="school-loc">Atlanta</span></div>
+      <div class="school"><span class="school-num">03</span><span class="school-name">North Atlanta</span><span class="school-loc">Atlanta</span></div>
+      <div class="school"><span class="school-num">04</span><span class="school-name">South Atlanta</span><span class="school-loc">Atlanta</span></div>
+      <div class="school"><span class="school-num">05</span><span class="school-name">Frederick Douglass</span><span class="school-loc">Atlanta</span></div>
+      <div class="school"><span class="school-num">06</span><span class="school-name">Westlake</span><span class="school-loc">South Fulton</span></div>
+      <div class="school"><span class="school-num">07</span><span class="school-name">Langston Hughes</span><span class="school-loc">South Fulton</span></div>
+      <div class="school"><span class="school-num">08</span><span class="school-name">Creekside</span><span class="school-loc">South Fulton</span></div>
+      <div class="school"><span class="school-num">09</span><span class="school-name">Banneker</span><span class="school-loc">South Fulton</span></div>
+      <div class="school"><span class="school-num">10</span><span class="school-name">North Clayton</span><span class="school-loc">Clayton County</span></div>
+      <div class="school"><span class="school-num">11</span><span class="school-name">Tri-Cities</span><span class="school-loc">South Fulton</span></div>
+      <div class="school" style="background:rgba(235,187,16,.08);">
+        <span class="school-num" style="color:var(--reach-gold);">+</span>
+        <span class="school-name" style="color:var(--reach-gold);">Your school next?</span>
+        <span class="school-loc">Get in touch</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUPPORTERS ============ -->
+<section class="supporters">
+  <span class="eyebrow">Supported by</span>
+  <div class="supporters-row">
+    <span>Delta Pilots' Charitable Fund</span>
+    <span>·</span>
+    <span style="color:var(--reach-gold);">Your name next?</span>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="cta-band" id="donate">
+  <div class="cta-band-inner">
+    <div>
+      <h2>Back the<br><span class="accent">next class.</span></h2>
+      <p>Every dollar goes directly to a scholar's tuition, books, or fees. 501(c)(3) — your gift is tax-deductible.</p>
+    </div>
+    <div class="actions">
+      <a class="btn btn-gold" href="pages/donate.html">Donate now <i data-lucide="arrow-right"></i></a>
+      <a class="btn btn-outline" href="pages/become-a-mentor.html">Become a mentor</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<div id="site-footer"></div>
+
+<script src="partials/site.js"></script>
+<script>if(window.lucide)lucide.createIcons();</script>
+</body>
+</html>
